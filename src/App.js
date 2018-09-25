@@ -1,15 +1,16 @@
 import Component from "./components/Component";
-import Paint from "./components/Paint";
 import Title from "./components/Title";
+import Paint from "./components/Paint";
 
 class App extends Component {
-  render() {
-    return `
-      <section>
-        ${new Title({ name: 'Hello' })}
-        ${new Paint()}
-      </section>
-    `
+  constructor(element) {
+    super(element)
+
+    const title = new Title('Hello')
+    this.element.appendChild(title.element)
+
+    const paint = new Paint()
+    this.element.appendChild(paint.element)
   }
 }
 

@@ -1,8 +1,10 @@
 import Component from "../Component";
 
 class Title extends Component {
-  render() {
-    return `<h1>${this.props.name}</h1>`
+  constructor(name) {
+    super('h1')
+
+    this.element.innerText = name
   }
 }
 

@@ -1,4 +1,4 @@
 import App from './App';
 import './index.sass'
 
-document.getElementById('root').innerHTML = `${new App()}`
+new App(document.getElementById('root'))

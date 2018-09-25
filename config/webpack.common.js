@@ -11,6 +11,9 @@ module.exports = {
     path: commonPaths.build,
     filename: 'bundle.[hash].js'
   },
+  // resolve: {
+  //   extensions: ['.js'],
+  // },
   module: {
     rules: [
       {
