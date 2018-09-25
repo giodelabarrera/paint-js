@@ -3,7 +3,7 @@
 const commonPaths = require('./common-paths');
 const { ProgressPlugin } = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
+// const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   entry: ['babel-polyfill', `${commonPaths.src}/index.js`],
@@ -25,12 +25,12 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: `${commonPaths.public}/index.html`
     }),
-    new CopyWebpackPlugin([
-      {
-        from: `${commonPaths.data}/section.json`,
-        to: `${commonPaths.build}/section.json`,
-        toType: 'file'
-      }
-    ])
+    // new CopyWebpackPlugin([
+    //   {
+    //     from: `${commonPaths.data}/section.json`,
+    //     to: `${commonPaths.build}/section.json`,
+    //     toType: 'file'
+    //   }
+    // ])
   ]
 };
