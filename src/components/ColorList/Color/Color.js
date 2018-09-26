@@ -1,21 +1,23 @@
 import Component from "../../Component";
 
 class Color extends Component {
-  constructor(colorCode, isActive, onClick) {
+  constructor(code, isActive, onClick) {
     super('button')
 
-    this.element.innerText = colorCode
+    this.element.innerText = code
 
-    this.code = colorCode
+    this.code = code
+    this.isActive = isActive
     this.onClick = onClick
 
-    if (isActive) this.active()
+    if (this.isActive) this.active()
 
     this.element.addEventListener('click', this.handleClick)
   }
 
   handleClick = event => {
     this.onClick(this.code)
+    
     this.active()
   }
 
@@ -25,7 +27,7 @@ class Color extends Component {
     this.element.disabled = true
   }
 
-  disable() {
+  deactivate() {
     this.isActive = false
 
     this.element.disabled = false

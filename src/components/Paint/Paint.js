@@ -1,17 +1,35 @@
 import Component from "../Component";
 import Canvas from "../Canvas"
-import ColorPalette from "../ColorPalette";
+import ColorList from "../ColorList";
+import LineWeightList from "../LineWeightList";
 
 class Paint extends Component {
-  constructor(width, height, strokeColors, strokeColor) {
+  constructor(width, height, colors, defaultColor, weights, defaultWeight) {
     super('section')
 
-    this.canvas = new Canvas(width, height, strokeColor, this.onCanvasMouseDown, this.onCanvasMouseMove, this.onCanvasMouseUp)
+    // this.width = width
+    // this.height = height
+    // this.colors = colors
+    // this.defaultColor = defaultColor
+    // this.weights = weights
+    // this.defaultWeight = defaultWeight
+
+    this.canvas = new Canvas(
+      width,
+      height,
+      defaultColor,
+      this.onCanvasMouseDown,
+      this.onCanvasMouseMove,
+      this.onCanvasMouseUp
+    )
     this.element.appendChild(this.canvas.element)
 
     if (this.canvas) {
-      const colorPalette = new ColorPalette(strokeColors, strokeColor, this.onColorClick)
-      this.element.appendChild(colorPalette.element)
+      const colorList = new ColorList(colors, defaultColor, this.onColorClick)
+      this.element.appendChild(colorList.element)
+
+      const lineWeightList = new LineWeightList(weights, defaultWeight, this.onLineWeightClick)
+      this.element.appendChild(lineWeightList.element)
     }
   }
 
@@ -27,9 +45,14 @@ class Paint extends Component {
 
   onCanvasMouseUp() { }
 
-  onColorClick = colorCode => {
+  onColorClick = code => {
     const context = this.canvas.element.getContext('2d')
-    context.strokeStyle = colorCode
+    context.strokeStyle = code
+  }
+  
+  onLineWeightClick = weight => {
+    const context = this.canvas.element.getContext('2d')
+    context.lineWidth = weight
   }
 }
 
