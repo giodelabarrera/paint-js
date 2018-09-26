@@ -3,16 +3,8 @@ import Canvas from "../Canvas"
 import ColorPalette from "../ColorPalette";
 
 class Paint extends Component {
-  constructor() {
+  constructor(width, height, strokeColors, strokeColor) {
     super('section')
-
-    const width = 500
-    const height = 500
-
-    const strokeColor = 'black'
-    this.strokeColor = strokeColor
-
-    const strokeColors = ['black', 'red', 'yellow', 'blue']
 
     this.canvas = new Canvas(width, height, strokeColor, this.onCanvasMouseDown, this.onCanvasMouseMove, this.onCanvasMouseUp)
     this.element.appendChild(this.canvas.element)

@@ -9,7 +9,7 @@ class App extends Component {
     const title = new Title('Paint')
     this.element.appendChild(title.element)
 
-    const paint = new Paint()
+    const paint = new Paint(500, 500, ['black', 'red', 'yellow', 'blue'], 'black')
     this.element.appendChild(paint.element)
   }
 }
