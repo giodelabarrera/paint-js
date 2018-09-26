@@ -11,6 +11,10 @@ class ColorTool extends Component {
     // state
     // this.active = 
   }
+
+  onChangeColorClick() {
+    
+  }
 }
 
 export default ColorTool
