@@ -2,6 +2,7 @@ import Component from "../Component";
 import Canvas from "../Canvas"
 import ColorList from "../ColorList";
 import LineWeightList from "../LineWeightList";
+import UndoButton from "../UndoButton";
 
 class Paint extends Component {
   constructor(width, height, colors, defaultColor, weights, defaultWeight) {
@@ -25,6 +26,14 @@ class Paint extends Component {
     this.element.appendChild(this.canvas.element)
 
     if (this.canvas) {
+
+      const stateButtonContainer = document.createElement('div')
+
+      const undoButton = new UndoButton(false, this.onUndoClick)
+      stateButtonContainer.appendChild(undoButton.element)
+
+      this.element.appendChild(stateButtonContainer)
+
       const colorList = new ColorList(colors, defaultColor, this.onColorClick)
       this.element.appendChild(colorList.element)
 
@@ -53,6 +62,10 @@ class Paint extends Component {
   onLineWeightClick = weight => {
     const context = this.canvas.element.getContext('2d')
     context.lineWidth = weight
+  }
+
+  onUndoClick = () => {
+    alert('undo')
   }
 }
 
