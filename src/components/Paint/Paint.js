@@ -1,14 +1,26 @@
 import Component from "../Component";
-import Canvas from "./Canvas"
-import Color from "./Color";
-import ColorTool from "./ColorTool";
+import Canvas from "../Canvas"
+import ColorPalette from "../ColorPalette";
 
 class Paint extends Component {
   constructor() {
     super('section')
 
-    const canvas = new Canvas(500, 500, this.onCanvasMouseDown, this.onCanvasMouseMove, this.onCanvasMouseUp)
-    this.element.appendChild(canvas.element)
+    const width = 500
+    const height = 500
+
+    const strokeColor = 'black'
+    this.strokeColor = strokeColor
+
+    const strokeColors = ['black', 'red', 'yellow', 'blue']
+
+    this.canvas = new Canvas(width, height, strokeColor, this.onCanvasMouseDown, this.onCanvasMouseMove, this.onCanvasMouseUp)
+    this.element.appendChild(this.canvas.element)
+
+    if (this.canvas) {
+      const colorPalette = new ColorPalette(strokeColors, strokeColor, this.onColorClick)
+      this.element.appendChild(colorPalette.element)
+    }
   }
 
   onCanvasMouseDown(context, coordinateX, coordinateY) {
@@ -21,8 +33,11 @@ class Paint extends Component {
     context.stroke();
   }
 
-  onCanvasMouseUp() {
-    alert('finish')
+  onCanvasMouseUp() { }
+
+  onColorClick = colorCode => {
+    const context = this.canvas.element.getContext('2d')
+    context.strokeStyle = colorCode
   }
 }
 

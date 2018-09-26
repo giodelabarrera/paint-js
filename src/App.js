@@ -6,7 +6,7 @@ class App extends Component {
   constructor(element) {
     super(element)
 
-    const title = new Title('Hello')
+    const title = new Title('Paint')
     this.element.appendChild(title.element)
 
     const paint = new Paint()

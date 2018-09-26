@@ -1,14 +1,17 @@
-import Component from "../../Component";
-import './Canvas.sass'
+import Component from "../Component";
 
 class Canvas extends Component {
-  constructor(width, height, onMouseDown, onMouseMove, onMouseUp) {
+  constructor(width, height, strokeColor, onMouseDown, onMouseMove, onMouseUp) {
     super('canvas')
 
     this.element.width = width
     this.element.height = height
 
     this.painting = false
+
+    const context = this.element.getContext('2d')
+    context.strokeStyle = strokeColor
+
     this.onMouseDown = onMouseDown
     this.onMouseMove = onMouseMove
     this.onMouseUp = onMouseUp
