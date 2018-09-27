@@ -55,31 +55,31 @@ class Paint extends Component {
     context.beginPath()
     context.moveTo(coordinateX, coordinateY)
 
-    this.currentStroke.color = context.strokeStyle;
-    this.currentStroke.width = context.lineWidth;
-    this.currentStroke.coordinates = [];
-    this.currentStroke.coordinates.push({ x: coordinateX, y: coordinateY });
+    this.currentStroke.color = context.strokeStyle
+    this.currentStroke.width = context.lineWidth
+    this.currentStroke.coordinates = []
+    this.currentStroke.coordinates.push({ x: coordinateX, y: coordinateY })
   }
 
   onCanvasMouseMove = (context, coordinateX, coordinateY) => {
-    context.lineTo(coordinateX, coordinateY);
-    context.stroke();
+    context.lineTo(coordinateX, coordinateY)
+    context.stroke()
 
-    this.currentStroke.coordinates.push({ x: coordinateX, y: coordinateY });
+    this.currentStroke.coordinates.push({ x: coordinateX, y: coordinateY })
   }
 
   onCanvasMouseUp = (context, coordinateX, coordinateY) => {
-    if (this.currentStroke.coordinates.length === 1) {
+    if (this.isStrokeAPixel(this.currentStroke)) {
       coordinateX--
       coordinateY--
 
-      context.lineTo(coordinateX, coordinateY);
-      context.stroke();
+      context.lineTo(coordinateX, coordinateY)
+      context.stroke()
 
-      this.currentStroke.coordinates.push({ x: coordinateX, y: coordinateY });
+      this.currentStroke.coordinates.push({ x: coordinateX, y: coordinateY })
     }
 
-    if (this.strokes.length > 0 && this.strokePosition !== this.strokes.length - 1) {
+    if (this.isNewStrokeAfterUndo(this.strokePosition, this.strokes)) {
       this.strokes.splice(this.strokePosition + 1, this.strokes.length - (this.strokePosition + 1))
     }
 
@@ -107,9 +107,9 @@ class Paint extends Component {
     if (isEnable) {
       const context = this.canvas.element.getContext('2d')
 
-      context.save();
+      context.save()
 
-      context.clearRect(0, 0, this.width, this.height);
+      context.clearRect(0, 0, this.width, this.height)
 
       this.strokePosition--
 
@@ -117,22 +117,13 @@ class Paint extends Component {
 
       this.redoButton.enable()
 
-      for (let strokeIndex = 0; strokeIndex <= this.strokePosition; strokeIndex++) {
-        const stroke = this.strokes[strokeIndex]
+      for (let index = 0; index <= this.strokePosition; index++) {
+        const stroke = this.strokes[index]
 
         context.strokeStyle = stroke.color
         context.lineWidth = stroke.width
 
-        stroke.coordinates.forEach((coordinate, coordinateIndex) => {
-          if (coordinateIndex === 0) {
-            context.beginPath()
-            context.moveTo(coordinate.x, coordinate.y)
-          }
-          else {
-            context.lineTo(coordinate.x, coordinate.y)
-            context.stroke()
-          }
-        })
+        this.drawCoordinates(stroke.coordinates, context)
       }
 
       context.restore()
@@ -143,32 +134,44 @@ class Paint extends Component {
     if (isEnable) {
       const context = this.canvas.element.getContext('2d')
 
-      context.save();
+      context.save()
 
-      this.strokePosition++;
+      this.strokePosition++
 
       if (this.strokePosition === this.strokes.length - 1) this.redoButton.disable()
 
       this.undoButton.enable()
 
-      const stroke = this.strokes[this.strokePosition];
+      const stroke = this.strokes[this.strokePosition]
 
       context.strokeStyle = stroke.color
-      context.lineWidth = stroke.width;
+      context.lineWidth = stroke.width
 
-      stroke.coordinates.forEach((coordinate, coordinateIndex) => {
-        if (coordinateIndex === 0) {
-          context.beginPath();
-          context.moveTo(coordinate.x, coordinate.y);
-        }
-        else {
-          context.lineTo(coordinate.x, coordinate.y);
-          context.stroke();
-        }
-      });
+      this.drawCoordinates(stroke.coordinates, context)
 
-      context.restore();
+      context.restore()
     }
+  }
+
+  isStrokeAPixel(stroke) {
+    return stroke.coordinates.length === 1
+  }
+
+  isNewStrokeAfterUndo(strokePosition, strokes) {
+    return strokes.length > 0 && strokePosition !== strokes.length - 1
+  }
+
+  drawCoordinates(coordinates, context) {
+    coordinates.forEach((coordinate, index) => {
+      if (index === 0) {
+        context.beginPath()
+        context.moveTo(coordinate.x, coordinate.y)
+      }
+      else {
+        context.lineTo(coordinate.x, coordinate.y)
+        context.stroke()
+      }
+    })
   }
 }
 
