@@ -24,16 +24,16 @@ class Canvas extends Component {
   handleMouseDown = event => {
     this.painting = true
 
-    const coordinateX = event.clientX - this.element.offsetLeft;
-    const coordinateY = event.clientY - this.element.offsetTop;
+    const coordinateX = event.pageX - this.element.offsetLeft;
+    const coordinateY = event.pageY - this.element.offsetTop;
 
     this.onMouseDown(this.element.getContext('2d'), coordinateX, coordinateY)
   }
 
   handleMouseMove = event => {
     if (this.painting) {
-      const coordinateX = event.clientX - this.element.offsetLeft;
-      const coordinateY = event.clientY - this.element.offsetTop;
+      const coordinateX = event.pageX - this.element.offsetLeft;
+      const coordinateY = event.pageY - this.element.offsetTop;
 
       this.onMouseMove(this.element.getContext('2d'), coordinateX, coordinateY)
     }
@@ -42,8 +42,8 @@ class Canvas extends Component {
   handleMouseUp = event => {
     this.painting = false
 
-    const coordinateX = event.clientX - this.element.offsetLeft;
-    const coordinateY = event.clientY - this.element.offsetTop;
+    const coordinateX = event.pageX - this.element.offsetLeft;
+    const coordinateY = event.pageY - this.element.offsetTop;
 
     this.onMouseUp(this.element.getContext('2d'), coordinateX, coordinateY)
   }

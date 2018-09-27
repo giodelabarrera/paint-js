@@ -10,7 +10,7 @@ class App extends Component {
     this.element.appendChild(title.element)
 
     const paint = new Paint(
-      500, 
+      500,
       500, 
       ['black', 'red', 'yellow', 'blue'],
       'black',
