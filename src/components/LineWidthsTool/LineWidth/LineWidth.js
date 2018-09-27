@@ -1,12 +1,12 @@
 import Component from "../../Component";
 
-class LineWeight extends Component {
-  constructor(weight, isActive, onClick) {
+class LineWidth extends Component {
+  constructor(width, isActive, onClick) {
     super('button')
 
-    this.element.innerText = weight
+    this.element.innerText = width
 
-    this.weight = weight
+    this.width = width
     this.isActive = isActive
     this.onClick = onClick
 
@@ -16,7 +16,7 @@ class LineWeight extends Component {
   }
 
   handleClick = event => {
-    this.onClick(this.weight)
+    this.onClick(this.width)
     
     this.active()
   }
@@ -34,4 +34,4 @@ class LineWeight extends Component {
   }
 }
 
-export default LineWeight
+export default LineWidth

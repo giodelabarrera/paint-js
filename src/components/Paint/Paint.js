@@ -1,11 +1,11 @@
 import Component from "../Component";
 import Canvas from "../Canvas"
-import ColorList from "../ColorList";
-import LineWeightList from "../LineWeightList";
+import ColorsTool from "../ColorsTool";
+import LineWidthsTool from "../LineWidthsTool";
 import ActionButton from "../ActionButton";
 
 class Paint extends Component {
-  constructor(width, height, colors, defaultColor, weights, defaultWeight) {
+  constructor(width, height, colors, defaultColor, lineWidths, defaultLineWidth) {
     super('section')
 
     this.width = width
@@ -43,11 +43,11 @@ class Paint extends Component {
 
       this.element.appendChild(actionButtonsContainer)
 
-      const colorList = new ColorList(colors, defaultColor, this.onColorClick)
-      this.element.appendChild(colorList.element)
+      const colorsTool = new ColorsTool(colors, defaultColor, this.onColorClick)
+      this.element.appendChild(colorsTool.element)
 
-      const lineWeightList = new LineWeightList(weights, defaultWeight, this.onLineWeightClick)
-      this.element.appendChild(lineWeightList.element)
+      const lineWidthsTool = new LineWidthsTool(lineWidths, defaultLineWidth, this.onLineWidthClick)
+      this.element.appendChild(lineWidthsTool.element)
     }
   }
 
@@ -98,9 +98,9 @@ class Paint extends Component {
     context.strokeStyle = code
   }
 
-  onLineWeightClick = weight => {
+  onLineWidthClick = width => {
     const context = this.canvas.element.getContext('2d')
-    context.lineWidth = weight
+    context.lineWidth = width
   }
 
   onUndoClick = isEnable => {

@@ -1,7 +1,7 @@
 import Component from "../Component";
 import Color from "./Color";
 
-class ColorList extends Component {
+class ColorsTool extends Component {
   constructor(codes, defaultCode, onColorClick) {
     super('section')
 
@@ -28,4 +28,4 @@ class ColorList extends Component {
   }
 }
 
-export default ColorList
+export default ColorsTool
