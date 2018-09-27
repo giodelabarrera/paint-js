@@ -27,10 +27,6 @@ class Canvas extends Component {
     const coordinateX = event.clientX - this.element.offsetLeft;
     const coordinateY = event.clientY - this.element.offsetTop;
 
-    // const context = this.element.getContext('2d')
-    // context.beginPath()
-    // context.moveTo(coordinateX, coordinateY)
-
     this.onMouseDown(this.element.getContext('2d'), coordinateX, coordinateY)
   }
 
@@ -38,11 +34,6 @@ class Canvas extends Component {
     if (this.painting) {
       const coordinateX = event.clientX - this.element.offsetLeft;
       const coordinateY = event.clientY - this.element.offsetTop;
-
-      // const context = this.element.getContext('2d')
-
-      // context.lineTo(coordinateX, coordinateY);
-      // context.stroke();
 
       this.onMouseMove(this.element.getContext('2d'), coordinateX, coordinateY)
     }
