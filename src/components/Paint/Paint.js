@@ -10,10 +10,6 @@ class Paint extends Component {
 
     this.width = width
     this.height = height
-    // this.colors = colors
-    // this.defaultColor = defaultColor
-    // this.weights = weights
-    // this.defaultWeight = defaultWeight
 
     this.strokes = []
     this.currentStroke = {}
@@ -36,13 +32,13 @@ class Paint extends Component {
       const undoContent = document.createElement('span')
       undoContent.innerText = 'undo'
       this.undoButton = new ActionButton([undoContent], false, this.onUndoClick)
-      
+
       actionButtonsContainer.appendChild(this.undoButton.element)
-      
+
       const redoContent = document.createElement('span')
       redoContent.innerText = 'redo'
       this.redoButton = new ActionButton([redoContent], false, this.onRedoClick)
-      
+
       actionButtonsContainer.appendChild(this.redoButton.element)
 
       this.element.appendChild(actionButtonsContainer)
@@ -72,21 +68,29 @@ class Paint extends Component {
     this.currentStroke.coordinates.push({ x: coordinateX, y: coordinateY });
   }
 
-  onCanvasMouseUp = () => {
-    if (!this.undoButton.isEnable) {
-      this.strokes = []
+  onCanvasMouseUp = (context, coordinateX, coordinateY) => {
+    if (this.currentStroke.coordinates.length === 1) {
+      coordinateX--
+      coordinateY--
 
-      this.redoButton.disable()
-      // isBtnRedoActive = false;
-      // btnRedo.disabled = true;
+      context.lineTo(coordinateX, coordinateY);
+      context.stroke();
+
+      this.currentStroke.coordinates.push({ x: coordinateX, y: coordinateY });
+    }
+
+    if (this.strokes.length > 0 && this.strokePosition !== this.strokes.length - 1) {
+      this.strokes.splice(this.strokePosition + 1, this.strokes.length - (this.strokePosition + 1))
     }
 
     this.strokes.push(this.currentStroke)
-    this.currentStroke = {}
 
     this.strokePosition = this.strokes.length - 1;
 
+    this.currentStroke = {}
+
     this.undoButton.enable()
+    this.redoButton.disable()
   }
 
   onColorClick = code => {
@@ -102,25 +106,23 @@ class Paint extends Component {
   onUndoClick = isEnable => {
     if (isEnable) {
       const context = this.canvas.element.getContext('2d')
-      
+
       context.save();
-  
+
       context.clearRect(0, 0, this.width, this.height);
-  
+
       this.strokePosition--
-  
+
       if (this.strokePosition === -1) this.undoButton.disable()
-  
+
       this.redoButton.enable()
-      // isBtnRedoActive = true;
-      // btnRedo.disabled = false;
-  
+
       for (let strokeIndex = 0; strokeIndex <= this.strokePosition; strokeIndex++) {
         const stroke = this.strokes[strokeIndex]
-  
+
         context.strokeStyle = stroke.color
         context.lineWidth = stroke.width
-  
+
         stroke.coordinates.forEach((coordinate, coordinateIndex) => {
           if (coordinateIndex === 0) {
             context.beginPath()
@@ -132,7 +134,7 @@ class Paint extends Component {
           }
         })
       }
-  
+
       context.restore()
     }
   }
@@ -142,18 +144,18 @@ class Paint extends Component {
       const context = this.canvas.element.getContext('2d')
 
       context.save();
-  
+
       this.strokePosition++;
-  
-      if (this.strokePosition + 1 === this.strokes.length) this.redoButton.disable()
-  
+
+      if (this.strokePosition === this.strokes.length - 1) this.redoButton.disable()
+
       this.undoButton.enable()
-  
+
       const stroke = this.strokes[this.strokePosition];
-  
+
       context.strokeStyle = stroke.color
       context.lineWidth = stroke.width;
-  
+
       stroke.coordinates.forEach((coordinate, coordinateIndex) => {
         if (coordinateIndex === 0) {
           context.beginPath();
@@ -164,7 +166,7 @@ class Paint extends Component {
           context.stroke();
         }
       });
-  
+
       context.restore();
     }
   }
