@@ -1,5 +1,6 @@
 import Component from "../Component";
 import LineWidth from "./LineWidth";
+import './LineWidthsTool.sass'
 
 class LineWidthsTool extends Component {
   constructor(widths, defaultWidth, onLineWidthClick) {

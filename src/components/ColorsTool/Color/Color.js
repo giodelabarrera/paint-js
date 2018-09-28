@@ -5,14 +5,14 @@ class Color extends Component {
   constructor(code, isActive, onClick) {
     super('button')
 
-    const colorIcon = document.createElement('span')
-    colorIcon.classList.add('Color-icon')
-    colorIcon.style = `background-color: ${code}`
-    this.element.appendChild(colorIcon)
-
     this.code = code
     this.isActive = isActive
     this.onClick = onClick
+
+    const colorIcon = document.createElement('span')
+    colorIcon.classList.add('Color-icon')
+    colorIcon.style = `background-color: ${this.code}`
+    this.element.appendChild(colorIcon)
 
     if (this.isActive) this.active()
 
