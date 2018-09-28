@@ -39,12 +39,12 @@ class Paint extends Component {
 
       // undo button
       const undoContent = document.createElement('i')
-      undoContent.className = 'far fa-arrow-alt-circle-left has-text-grey-lighter is-size-2'
+      undoContent.className = 'action-button-content far fa-arrow-alt-circle-left'
       this.undoButton = new ActionButton([undoContent], false, this.onUndoClick)
 
       // redo button
       const redoContent = document.createElement('i')
-      redoContent.className = 'far fa-arrow-alt-circle-right has-text-grey-lighter is-size-2'
+      redoContent.className = 'action-button-content far fa-arrow-alt-circle-right'
       this.redoButton = new ActionButton([redoContent], false, this.onRedoClick)
       
       const actionButtonsContainer = new Tool([this.undoButton.element, this.redoButton.element])

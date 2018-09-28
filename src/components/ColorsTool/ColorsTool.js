@@ -1,5 +1,6 @@
 import Component from "../Component";
 import Color from "./Color";
+import './ColorsTool.sass'
 
 class ColorsTool extends Component {
   constructor(codes, defaultCode, onColorClick) {

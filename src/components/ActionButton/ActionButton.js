@@ -28,12 +28,14 @@ class ActionButton extends Component {
   enable() {
     this._isEnable = true
     
+    this.element.classList.add('is-enable')
     this.element.disabled = false
   }
 
   disable() {
     this._isEnable = false
 
+    this.element.classList.remove('is-enable')
     this.element.disabled = true
   }
 }
