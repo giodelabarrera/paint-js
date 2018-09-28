@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+    crossorigin="anonymous">
+</head>
+
+<body>
+  <div class="flex-vcenter">
+    <main>
+      <section>
+        <canvas></canvas>
+      </section>
+      <section>
+        <section class="tool action-buttons-container">
+          <button class="action-button" title="Undo">
+            <i class="far fa-arrow-alt-circle-left action-button-icon is-enable"></i>
+          </button>
+          <button class="action-button" title="Redo">
+            <i class="far fa-arrow-alt-circle-right action-button-icon"></i>
+          </button>
+        </section>
+        <section class="tool colors-tool">
+          <button class="color">
+            <span class="color-icon" style="background-color: #000000"></span>
+          </button>
+          <button class="color">
+            <span class="color-icon" style="background-color: #fd5658"></span>
+          </button>
+          <button class="color">
+            <span class="color-icon" style="background-color: #FFBC00"></span>
+          </button>
+          <button class="color">
+            <span class="color-icon" style="background-color: #16c757"></span>
+          </button>
+          <button class="color">
+            <span class="color-icon" style="background-color: #16affc"></span>
+          </button>
+
+          <button class="color">
+            <span class="color-icon" style="background-color: #ffffff"></span>
+          </button>
+          <button class="color">
+            <span class="color-icon" style="background-color: #a42b1d"></span>
+          </button>
+          <button class="color">
+            <span class="color-icon" style="background-color: #ed8323"></span>
+          </button>
+          <button class="color">
+            <span class="color-icon" style="background-color: #568b34"></span>
+          </button>
+          <button class="color">
+            <span class="color-icon" style="background-color: #085799"></span>
+          </button>
+
+          <button class="color">
+            <span class="color-icon" style="background-color: #cfd8dc"></span>
+          </button>
+          <button class="color">
+            <span class="color-icon" style="background-color: #ff4081"></span>
+          </button>
+          <button class="color">
+            <span class="color-icon" style="background-color: #ff6e40"></span>
+          </button>
+          <button class="color">
+            <span class="color-icon" style="background-color: #aeea00"></span>
+          </button>
+          <button class="color">
+            <span class="color-icon" style="background-color: #304ffe"></span>
+          </button>
+
+          <button class="color">
+            <span class="color-icon" style="background-color: #4e342e"></span>
+          </button>
+          <button class="color">
+            <span class="color-icon" style="background-color: #d414f6"></span>
+          </button>
+          <button class="color">
+            <span class="color-icon" style="background-color: #8d6e63"></span>
+          </button>
+          <button class="color">
+            <span class="color-icon" style="background-color: #1de9b6"></span>
+          </button>
+          <button class="color">
+            <span class="color-icon" style="background-color: #7c4dff"></span>
+          </button>
+        </section>
+        <section class="tool line-widths-tool">
+          <button class="line-widths">
+            <span class="line-widths-icon" style="width: calc(5px * 1); height: calc(5px * 1)"></span>
+          </button>
+          <button class="line-widths">
+            <span class="line-widths-icon" style="width: calc(5px * 2); height: calc(5px * 2)"></span>
+          </button>
+          <button class="line-widths">
+            <span class="line-widths-icon" style="width: calc(5px * 3); height: calc(5px * 3)"></span>
+          </button>
+          <button class="line-widths">
+            <span class="line-widths-icon" style="width: calc(5px * 4); height: calc(5px * 4)"></span>
+          </button>
+          <button class="line-widths">
+            <span class="line-widths-icon" style="width: calc(5px * 5); height: calc(5px * 5)"></span>
+          </button>
+        </section>
+      </section>
+    </main>
+  </div>
+  <script>
+    const canvas = document.getElementsByTagName('canvas')[0]
+    canvas.width = 900
+    canvas.height = 650
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,153 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+dl,
+dt,
+dd {
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  margin-top: 0;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  padding: 10px;
+}
+
+/*  */
+
+html {
+  height: 100%;
+}
+
+body {
+  background-color: #e6e6e6;
+  height: 100%;
+  color: #5b5b5b
+}
+
+main {
+  width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-column-gap: 2em;
+}
+
+canvas {
+  background-color: #ffffff;
+  cursor: pointer;
+}
+
+.flex-vcenter {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
+.tool {
+  padding: 20px;
+  border-bottom: 1px solid #CDCDCD;
+}
+
+.tool:last-child {
+  border-bottom: none
+}
+
+.action-button {
+  outline: none;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.action-button .action-button-icon {
+  color: #cdcdcd;
+  font-size: 40px;
+}
+
+.action-button.is-enable .action-button-icon {
+  color: #5b5b5b
+}
+
+.colors-tool {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-column-gap: 0.4em;
+}
+
+.color {
+  outline: none;
+  border: none;
+  background: transparent;
+  width: 40px;
+  height: 40px;
+  padding: 0px;
+  margin: 0;
+  cursor: pointer;
+}
+
+.color-icon {
+  width: 20px;
+  height: 20px;
+  display: block;
+  border-radius: 50%;
+  margin: 0 auto;
+}
+
+.color:hover .color-icon {
+  width: 25px;
+  height: 25px;
+}
+
+.color.is-active .color-icon {
+  width: 35px;
+  height: 35px;
+}
+
+.line-widths-tool {
+  display: flex;
+  justify-content: space-between;
+}
+
+.line-widths {
+  outline: none;
+  border: none;
+  background: transparent;
+  width: 40px;
+  height: 40px;
+  padding: 0px;
+  margin: 0;
+  cursor: pointer;
+}
+
+.line-widths:hover {
+  border: 1px solid #cdcdcd;
+  border-radius: 50%;
+}
+
+.line-widths.is-active {
+  border: 1px solid #000000;
+  border-radius: 50%;
+}
+
+.line-widths-icon {
+  display: block;
+  background-color: #000000;
+  border-radius: 50%;
+  margin: 0 auto;
+}
