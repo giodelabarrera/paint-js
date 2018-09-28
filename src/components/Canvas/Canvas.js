@@ -11,6 +11,8 @@ class Canvas extends Component {
 
     const context = this.element.getContext('2d')
     context.strokeStyle = strokeColor
+    context.lineCap = 'round'
+    context.lineJoin = 'round'
 
     this.onMouseDown = onMouseDown
     this.onMouseMove = onMouseMove
