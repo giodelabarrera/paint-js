@@ -1,4 +1,9 @@
 import App from './App';
+import './reset.sass'
 import './index.sass'
 
-new App(document.getElementById('root'))
+const root = document.getElementById('root')
+root.classList.add('has-vertical-center')
+
+const app = new App()
+root.appendChild(app.element)

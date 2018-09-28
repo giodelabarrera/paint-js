@@ -7,6 +7,8 @@ class Component {
     } else if (tagNameOrElement instanceof HTMLElement) {
       this._element = tagNameOrElement
     }
+
+    this.element.classList.add(this.constructor.name)
   }
 
   get element() {

@@ -3,6 +3,8 @@ import Canvas from "../Canvas"
 import ColorsTool from "../ColorsTool";
 import LineWidthsTool from "../LineWidthsTool";
 import ActionButton from "../ActionButton";
+import Tool from "../Tool";
+import './Paint.sass'
 
 class Paint extends Component {
   constructor(width, height, colors, defaultColor, lineWidths, defaultLineWidth) {
@@ -15,6 +17,9 @@ class Paint extends Component {
     this.currentStroke = {}
     this.strokePosition = 0
 
+    const canvasWrapper = document.createElement('section')
+    canvasWrapper.classList.add('Paint-canvasWrapper')
+
     this.canvas = new Canvas(
       this.width,
       this.height,
@@ -23,31 +28,41 @@ class Paint extends Component {
       this.onCanvasMouseMove,
       this.onCanvasMouseUp
     )
-    this.element.appendChild(this.canvas.element)
+    canvasWrapper.appendChild(this.canvas.element)
+
+    this.element.appendChild(canvasWrapper)
 
     if (this.canvas) {
 
-      const actionButtonsContainer = document.createElement('div')
+      const toolsWrapper = document.createElement('section')
+      toolsWrapper.classList.add('Paint-toolsWrapper')
 
-      const undoContent = document.createElement('span')
-      undoContent.innerText = 'undo'
+      // undo button
+      const undoContent = document.createElement('i')
+      undoContent.className = 'far fa-arrow-alt-circle-left has-text-grey-lighter is-size-2'
       this.undoButton = new ActionButton([undoContent], false, this.onUndoClick)
 
-      actionButtonsContainer.appendChild(this.undoButton.element)
-
-      const redoContent = document.createElement('span')
-      redoContent.innerText = 'redo'
+      // redo button
+      const redoContent = document.createElement('i')
+      redoContent.className = 'far fa-arrow-alt-circle-right has-text-grey-lighter is-size-2'
       this.redoButton = new ActionButton([redoContent], false, this.onRedoClick)
+      
+      const actionButtonsContainer = new Tool([this.undoButton.element, this.redoButton.element])
+      toolsWrapper.appendChild(actionButtonsContainer.element)
 
-      actionButtonsContainer.appendChild(this.redoButton.element)
-
-      this.element.appendChild(actionButtonsContainer)
-
+      // colors tool
       const colorsTool = new ColorsTool(colors, defaultColor, this.onColorClick)
-      this.element.appendChild(colorsTool.element)
+      
+      const colorsToolContainer = new Tool([colorsTool.element])
+      toolsWrapper.appendChild(colorsToolContainer.element)
 
+      // line widths tool
       const lineWidthsTool = new LineWidthsTool(lineWidths, defaultLineWidth, this.onLineWidthClick)
-      this.element.appendChild(lineWidthsTool.element)
+
+      const lineWidthsContainer = new Tool([lineWidthsTool.element])
+      toolsWrapper.appendChild(lineWidthsContainer.element)
+      
+      this.element.appendChild(toolsWrapper)
     }
   }
 

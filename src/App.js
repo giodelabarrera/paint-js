@@ -1,17 +1,14 @@
 import Component from "./components/Component";
-import Title from "./components/Title";
 import Paint from "./components/Paint";
+import './App.sass'
 
 class App extends Component {
-  constructor(element) {
-    super(element)
-
-    const title = new Title('Paint')
-    this.element.appendChild(title.element)
+  constructor() {
+    super('main')
 
     const paint = new Paint(
-      500,
-      500,
+      900,
+      650,
       [
         '#000000', '#fd5658', '#ffbc00', '#16c757', '#16affc',
         '#ffffff', '#a42b1d', '#ed8323', '#568b34', '#085799',

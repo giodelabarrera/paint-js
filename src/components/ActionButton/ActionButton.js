@@ -1,10 +1,11 @@
-import Component from "../Component";
+import Component from "../Component"
+import './ActionButton.sass'
 
 class ActionButton extends Component {
   constructor(children, isEnable, onClick) {
     super('button')
 
-    children.forEach(child => this.element.appendChild(child));
+    children.forEach(child => this.element.appendChild(child))
 
     this.element.disabled = true
 
