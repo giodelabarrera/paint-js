@@ -27,6 +27,8 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 - [x] Styles (SASS)
 - [ ] Eslint
 - [ ] TDD [Jest](https://jestjs.io/)
+- [ ] Coverage
+- [ ] Variables in component styles (SASS)
 - [ ] Documentation
 
 # Paint Exercise
