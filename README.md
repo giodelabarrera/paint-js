@@ -1,5 +1,36 @@
-
 # Paint
+
+Paint built in vanilla js with canvas
+
+Live demo [http://giodelabarrera.paint-test.surge.sh/](http://giodelabarrera.paint-test.surge.sh/)
+
+## Getting Started
+
+Install the dependencies
+
+```sh
+npm i
+```
+
+Run the application in development environment
+
+```sh
+npm run watch
+```
+
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
+## TODO
+
+- [x] Paint
+- [x] Components (ES6, Webpack, Babel)
+- [x] Styles (SASS)
+- [ ] Eslint
+- [ ] Static type [Flow](https://flow.org/en/)
+- [ ] TDD [Jest](https://jestjs.io/)
+- [ ] Documentation
+
+# Paint Exercise
 
 Tienes que hacer una aplicacion parecida al famoso paint de Microsoft ;). Esta aplicación deberá tener solo las siguientes funcionalidades:
 
