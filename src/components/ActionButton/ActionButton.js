@@ -5,6 +5,8 @@ class ActionButton extends Component {
   constructor(children, isEnable, onClick) {
     super('button')
 
+    this.element.classList.add('ActionButton')
+
     children.forEach(child => this.element.appendChild(child))
 
     this.element.disabled = true

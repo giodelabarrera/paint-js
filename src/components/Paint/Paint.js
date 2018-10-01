@@ -10,6 +10,8 @@ class Paint extends Component {
   constructor(width, height, colors, defaultColor, lineWidths, defaultLineWidth) {
     super('section')
 
+    this.element.classList.add('Paint')
+
     this.width = width
     this.height = height
 

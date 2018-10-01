@@ -6,6 +6,8 @@ class App extends Component {
   constructor() {
     super('main')
 
+    this.element.classList.add('App')
+
     const paint = new Paint(
       900,
       650,

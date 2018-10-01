@@ -5,6 +5,8 @@ class LineWidth extends Component {
   constructor(width, isActive, onClick) {
     super('button')
 
+    this.element.classList.add('LineWidth')
+
     this.width = width
     this.isActive = isActive
     this.onClick = onClick
