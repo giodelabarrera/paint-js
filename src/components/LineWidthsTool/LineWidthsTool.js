@@ -6,6 +6,8 @@ class LineWidthsTool extends Component {
   constructor(widths, defaultWidth, onLineWidthClick) {
     super('section')
 
+    this.element.classList.add('LineWidthsTool')
+
     this.widths = widths
     this.defaultWidth = defaultWidth
     this.onLineWidthClick = onLineWidthClick

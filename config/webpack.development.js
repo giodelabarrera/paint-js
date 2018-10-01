@@ -17,9 +17,5 @@ module.exports = {
     ]
   },
   plugins: [
-    new DefinePlugin({
-      SCHEME: JSON.stringify('http'),
-      HOST: JSON.stringify('localhost:3000'),
-    })
   ]
 };

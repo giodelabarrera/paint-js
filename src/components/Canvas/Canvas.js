@@ -4,6 +4,8 @@ class Canvas extends Component {
   constructor(width, height, strokeColor, onMouseDown, onMouseMove, onMouseUp) {
     super('canvas')
 
+    this.element.classList.add('Canvas')
+
     this.element.width = width
     this.element.height = height
 

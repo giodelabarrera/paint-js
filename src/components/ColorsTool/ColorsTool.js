@@ -6,6 +6,8 @@ class ColorsTool extends Component {
   constructor(codes, defaultCode, onColorClick) {
     super('section')
 
+    this.element.classList.add('ColorsTool')
+
     this.codes = codes
     this.defaultCode = defaultCode
     this.onColorClick = onColorClick

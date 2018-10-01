@@ -5,6 +5,8 @@ class Color extends Component {
   constructor(code, isActive, onClick) {
     super('button')
 
+    this.element.classList.add('Color')
+
     this.code = code
     this.isActive = isActive
     this.onClick = onClick

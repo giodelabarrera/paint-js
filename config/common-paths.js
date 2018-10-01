@@ -7,5 +7,4 @@ module.exports = {
   src: resolve(__dirname, '../', 'src'),
   build: resolve(__dirname, '../', 'build'),
   public: resolve(__dirname, '../', 'public'),
-  // data: resolve(__dirname, '../', 'data'),
 };
