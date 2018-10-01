@@ -1,7 +1,6 @@
-
 class Component {
-
-  constructor(tagNameOrElement) {
+  // @flow
+  constructor(tagNameOrElement: HTMLElement) {
     if (typeof tagNameOrElement === 'string') {
       this._element = document.createElement(tagNameOrElement)
     } else if (tagNameOrElement instanceof HTMLElement) {

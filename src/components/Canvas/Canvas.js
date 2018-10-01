@@ -1,4 +1,4 @@
-import Component from "../Component";
+import Component from "../Component"
 
 class Canvas extends Component {
   constructor(width, height, strokeColor, onMouseDown, onMouseMove, onMouseUp) {
@@ -26,16 +26,16 @@ class Canvas extends Component {
   handleMouseDown = event => {
     this.painting = true
 
-    const coordinateX = event.pageX - this.element.offsetLeft;
-    const coordinateY = event.pageY - this.element.offsetTop;
+    const coordinateX = event.pageX - this.element.offsetLeft
+    const coordinateY = event.pageY - this.element.offsetTop
 
     this.onMouseDown(this.element.getContext('2d'), coordinateX, coordinateY)
   }
 
   handleMouseMove = event => {
     if (this.painting) {
-      const coordinateX = event.pageX - this.element.offsetLeft;
-      const coordinateY = event.pageY - this.element.offsetTop;
+      const coordinateX = event.pageX - this.element.offsetLeft
+      const coordinateY = event.pageY - this.element.offsetTop
 
       this.onMouseMove(this.element.getContext('2d'), coordinateX, coordinateY)
     }
@@ -44,8 +44,8 @@ class Canvas extends Component {
   handleMouseUp = event => {
     this.painting = false
 
-    const coordinateX = event.pageX - this.element.offsetLeft;
-    const coordinateY = event.pageY - this.element.offsetTop;
+    const coordinateX = event.pageX - this.element.offsetLeft
+    const coordinateY = event.pageY - this.element.offsetTop
 
     this.onMouseUp(this.element.getContext('2d'), coordinateX, coordinateY)
   }
