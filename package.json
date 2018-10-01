@@ -5,7 +5,7 @@
   "scripts": {
     "build": "webpack --env.mode production",
     "watch": "webpack-dev-server --env.mode development --hot --inline",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -27,6 +27,8 @@
     "copy-webpack-plugin": "^4.5.2",
     "css-loader": "^1.0.0",
     "html-webpack-plugin": "^3.2.0",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^23.6.0",
     "node-sass": "^4.9.3",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.0",
