@@ -26,8 +26,9 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 - [x] Components (ES6, Webpack, Babel)
 - [x] Styles (SASS)
 - [ ] Eslint
-- [ ] Static type [Flow](https://flow.org/en/)
 - [ ] TDD [Jest](https://jestjs.io/)
+- [ ] Coverage
+- [ ] Variables in component styles (SASS)
 - [ ] Documentation
 
 # Paint Exercise
