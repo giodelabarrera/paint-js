@@ -146,14 +146,29 @@ describe('canvas', () => {
       }
 
       const canvas = new Canvas({ width, height, strokeColor, onMouseDown, onMouseMove, onMouseUp })
+      canvas.element.dispatchEvent(new Event('mousedown'))
       canvas.element.dispatchEvent(new Event('mousemove'))
+
+      expect(canvas.painting).toBeTruthy()
+    })
+
+    test('should not do anything without handle mouse down', () => {
+      let doSomething = false
+
+      onMouseMove = (context, coordinateX, coordinateY) => doSomething = true
+
+      const canvas = new Canvas({ width, height, strokeColor, onMouseDown, onMouseMove, onMouseUp })
+      canvas.element.dispatchEvent(new Event('mousemove'))
+
+      expect(canvas.painting).toBeFalsy()
+      expect(doSomething).toBeFalsy()
     })
   })
 
   describe('handle mouse up', () => {
 
     test('should handle the mouse up correctly', () => {
-      onMouseMove = (context, coordinateX, coordinateY) => {
+      onMouseUp = (context, coordinateX, coordinateY) => {
         expect(context).toBeDefined()
         expect(context).toHaveProperty('beginPath')
         expect(context).toHaveProperty('moveTo')
@@ -166,7 +181,11 @@ describe('canvas', () => {
       }
 
       const canvas = new Canvas({ width, height, strokeColor, onMouseDown, onMouseMove, onMouseUp })
+      canvas.element.dispatchEvent(new Event('mousedown'))
+      canvas.element.dispatchEvent(new Event('mousemove'))
       canvas.element.dispatchEvent(new Event('mouseup'))
+
+      expect(canvas.painting).toBeFalsy()
     })
   })
 })
