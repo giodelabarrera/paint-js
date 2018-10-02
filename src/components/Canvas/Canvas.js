@@ -1,7 +1,25 @@
 import Component from "../Component";
 
+/**
+ * Canvas Component
+ * @class Canvas
+ * @extends {Component}
+ */
 class Canvas extends Component {
-  constructor(width, height, strokeColor, onMouseDown, onMouseMove, onMouseUp) {
+
+  /**
+   * Creates an instance of Canvas
+   * @param {Object} props - The props of the component
+   * @param {number} props.width - The width of the element
+   * @param {number} props.height - The height of the element
+   * @param {string} [strokeColor] - The stroke color
+   * @param {mixed} [onMouseDown] - The function to mouse down event
+   * @param {mixed} [onMouseMove] - The function to mouse move event 
+   * @param {mixed} [onMouseUp] - The function to mouse up event 
+   * @throws {Error} - Incorrect type
+   * @memberof Canvas
+   */
+  constructor({ width, height, strokeColor, onMouseDown, onMouseMove, onMouseUp }) {
     super('canvas')
 
     this.element.classList.add('Canvas')
@@ -9,22 +27,34 @@ class Canvas extends Component {
     this.element.width = width
     this.element.height = height
 
-    this.painting = false
-
-    const context = this.element.getContext('2d')
-    context.strokeStyle = strokeColor
-    context.lineCap = 'round'
-    context.lineJoin = 'round'
-
+    this.width = width
+    this.height = height
+    this.strokeColor = strokeColor
     this.onMouseDown = onMouseDown
     this.onMouseMove = onMouseMove
     this.onMouseUp = onMouseUp
 
-    this.element.addEventListener('mousedown', this.handleMouseDown)
-    this.element.addEventListener('mousemove', this.handleMouseMove)
-    this.element.addEventListener('mouseup', this.handleMouseUp)
+    if (!this.strokeColor) this.strokeColor = '#000000'
+
+    this.painting = false
+
+    debugger
+
+    const context = this.element.getContext('2d')
+    context.strokeStyle = this.strokeColor
+    context.lineCap = 'round'
+    context.lineJoin = 'round'
+
+    if (this.onMouseDown) this.element.addEventListener('mousedown', this.handleMouseDown)
+    if (this.onMouseMove) this.element.addEventListener('mousemove', this.handleMouseMove)
+    if (this.onMouseUp) this.element.addEventListener('mouseup', this.handleMouseUp)
   }
 
+  /**
+   * Handler mouse down
+   * @param {MouseEvent} event - The event
+   * @memberof Canvas
+   */
   handleMouseDown = event => {
     this.painting = true
 
@@ -34,6 +64,11 @@ class Canvas extends Component {
     this.onMouseDown(this.element.getContext('2d'), coordinateX, coordinateY)
   }
 
+  /**
+   * Handler mouse move
+   * @param {MouseEvent} event - The event
+   * @memberof Canvas
+   */
   handleMouseMove = event => {
     if (this.painting) {
       const coordinateX = event.pageX - this.element.offsetLeft;
@@ -43,6 +78,11 @@ class Canvas extends Component {
     }
   }
 
+  /**
+   * Handler mouse up
+   * @param {MouseEvent} event - The event
+   * @memberof Canvas
+   */
   handleMouseUp = event => {
     this.painting = false
 

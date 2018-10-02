@@ -9,11 +9,12 @@ import './ActionButton.sass'
 class ActionButton extends Component {
 
   /**
-   * Creates an instance of ActionButton Component
+   * Creates an instance of ActionButton
    * @param {Object} props - The props of the component
    * @param {Array<any>} props.children - The children
    * @param {boolean} props.isEnable - The flag value to enable or disable
    * @param {mixed} [props.onClick] - The function to onClick event
+   * @throws {Error} - Incorrect type
    * @memberof ActionButton
    */
   constructor({ children, isEnable, onClick }) {
@@ -42,7 +43,7 @@ class ActionButton extends Component {
 
   /**
    * Handler of the click
-   * @param {Event} event - The Event
+   * @param {MouseEvent} event - The event
    * @memberof ActionButton
    */
   handleClick = event => {

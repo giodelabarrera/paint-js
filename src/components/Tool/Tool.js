@@ -9,9 +9,10 @@ import './Tool.sass'
 class Tool extends Component {
 
   /**
-   * Creates an instance of Tool Component
+   * Creates an instance of Tool
    * @param {Object} props - The props of the component
    * @param {Array<any>} props.children - The children
+   * @throws {Error} - Incorrect type
    * @memberof Tool
    */
   constructor({ children }) {

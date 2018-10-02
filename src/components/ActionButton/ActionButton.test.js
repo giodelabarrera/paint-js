@@ -16,7 +16,7 @@ describe('action button', () => {
 
     isEnable = true
     
-    onClick = isEnable => console.log('click')
+    onClick = isEnable => 'clicked'
   })
 
   describe('entry', () => {
