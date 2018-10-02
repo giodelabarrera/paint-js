@@ -2,18 +2,12 @@
 class Component {
   constructor(tagNameOrElement) {
     if (typeof tagNameOrElement === 'string') {
-      this._element = document.createElement(tagNameOrElement)
+      this.element = document.createElement(tagNameOrElement)
     } else if (tagNameOrElement instanceof HTMLElement) {
-      this._element = tagNameOrElement
+      this.element = tagNameOrElement
+    } else {
+      throw new Error('tagNameOrElement must be of type string or HTMLElement')
     }
-  }
-
-  get element() {
-    return this._element
-  }
-
-  set element(element) {
-    this._element = element
   }
 }
 

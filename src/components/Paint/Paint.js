@@ -10,6 +10,13 @@ class Paint extends Component {
   constructor(width, height, colors, defaultColor, lineWidths, defaultLineWidth) {
     super('section')
 
+    // if (typeof width !== 'number') throw new Error('width must be of type number')
+    // if (typeof height !== 'number') throw new Error('height must be of type number')
+    // if (!Array.isArray(colors)) throw new Error('colors must be of type Array')
+    // if (typeof defaultColor !== 'string') throw new Error('defaultColor must be of type string')
+    // if (!Array.isArray(lineWidths)) throw new Error('lineWidths must be of type Array')
+    // if (typeof defaultLineWidth !== 'string') throw new Error('defaultLineWidth must be of type string')
+
     this.element.classList.add('Paint')
 
     this.width = width
