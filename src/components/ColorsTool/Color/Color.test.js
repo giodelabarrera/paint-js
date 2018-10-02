@@ -8,7 +8,7 @@ describe('color', () => {
   beforeEach(() => {
     code = '#000000'
     isActive = true
-    onClick = isActive => 'clicked'
+    onClick = code => 'clicked'
   })
 
   describe('entry', () => {
