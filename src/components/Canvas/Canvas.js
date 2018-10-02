@@ -9,6 +9,7 @@ class Canvas extends Component {
 
   /**
    * Creates an instance of Canvas
+   * 
    * @param {Object} props - The props of the component
    * @param {number} props.width - The width of the element
    * @param {number} props.height - The height of the element
@@ -21,6 +22,14 @@ class Canvas extends Component {
    */
   constructor({ width, height, strokeColor, onMouseDown, onMouseMove, onMouseUp }) {
     super('canvas')
+
+    if (typeof width === 'undefined') throw new Error('width is required')
+    if (typeof height === 'undefined') throw new Error('height is required')
+
+    if (typeof width !== 'number') throw new Error('width must be of type number')
+    if (typeof height !== 'number') throw new Error('height must be of type number')
+
+    if (strokeColor && typeof strokeColor !== 'string') throw new Error('strokeColor must be of type string')
 
     this.element.classList.add('Canvas')
 
@@ -37,8 +46,6 @@ class Canvas extends Component {
     if (!this.strokeColor) this.strokeColor = '#000000'
 
     this.painting = false
-
-    debugger
 
     const context = this.element.getContext('2d')
     context.strokeStyle = this.strokeColor
