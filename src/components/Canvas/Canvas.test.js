@@ -1,4 +1,5 @@
 import Canvas from '.'
+import 'jest-canvas-mock'
 
 describe('canvas', () => {
   let width

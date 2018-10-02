@@ -3,7 +3,6 @@ module.exports = {
   moduleNameMapper: {
     "\\.(sass|css|less)$": "identity-obj-proxy"
   },
-  setupFiles: ["jest-canvas-mock"],
   testMatch: [
     "<rootDir>/src/**/__tests__/**/*.{js,jsx,mjs}",
     "<rootDir>/src/**/?(*.)(spec|test).{js,jsx,mjs}"
