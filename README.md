@@ -24,12 +24,12 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 - [x] Paint
 - [x] Components (ES6, Webpack, Babel)
-- [x] Styles (SASS)
-- [ ] Eslint
-- [ ] TDD [Jest](https://jestjs.io/)
-- [ ] Coverage
+- [x] Styles (SASS, SUIT CSS)
 - [ ] Variables in component styles (SASS)
-- [ ] Documentation
+- [ ] TDD ([Jest](https://jestjs.io/)) with mock canvas
+- [ ] Docs
+- [ ] TDD in deep with [node canvas](https://github.com/Automattic/node-canvas)
+- [ ] Eslint ([Airbnb](https://github.com/airbnb/javascript))
 
 # Paint Exercise
 

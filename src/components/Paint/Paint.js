@@ -20,10 +20,10 @@ class Paint extends Component {
    * @param {Object} props - The props of the component
    * @param {number} props.width - The width to canvas element
    * @param {number} props.height - The height to canvas element
-   * @param {Array<string>} colors - The palette of colors to colors tool
-   * @param {Array<number>} lineWidths - The line widths to line widths tool
-   * @param {string} [defaultColor] - The default stroke color
-   * @param {number} [defaultLineWidth] - The default line width
+   * @param {Array<string>} props.colors - The palette of colors to colors tool
+   * @param {Array<number>} props.lineWidths - The line widths to line widths tool
+   * @param {string} [props.defaultColor] - The default stroke color
+   * @param {number} [props.defaultLineWidth] - The default line width
    * @throws {Error} - Incorrect type
    * @memberof Paint
    */
@@ -62,9 +62,9 @@ class Paint extends Component {
       width: this.width,
       height: this.height,
       defaultColor: this.defaultColor,
-      onCanvasMouseDown: this.onCanvasMouseDown,
-      onCanvasMouseMove: this.onCanvasMouseMove,
-      onCanvasMouseUp: this.onCanvasMouseUp
+      onMouseDown: this.onCanvasMouseDown,
+      onMouseMove: this.onCanvasMouseMove,
+      onMouseUp: this.onCanvasMouseUp
     })
     canvasWrapper.appendChild(this.canvas.element)
 
@@ -99,23 +99,23 @@ class Paint extends Component {
       toolsWrapper.appendChild(actionButtonsContainer.element)
 
       // colors tool
-      const colorsTool = new ColorsTool({
-        codes: colors,
-        defaultCode: defaultColor,
+      this.colorsTool = new ColorsTool({
+        codes: this.colors,
+        defaultCode: this.defaultColor,
         onColorClick: this.onColorClick
       })
 
-      const colorsToolContainer = new Tool({ children: [colorsTool.element] })
+      const colorsToolContainer = new Tool({ children: [this.colorsTool.element] })
       toolsWrapper.appendChild(colorsToolContainer.element)
 
       // line widths tool
-      const lineWidthsTool = new LineWidthsTool({
-        widths: lineWidths,
-        defaultWidth: defaultLineWidth,
+      this.lineWidthsTool = new LineWidthsTool({
+        widths: this.lineWidths,
+        defaultWidth: this.defaultLineWidth,
         onLineWidthClick: this.onLineWidthClick
       })
 
-      const lineWidthsContainer = new Tool({ children: [lineWidthsTool.element] })
+      const lineWidthsContainer = new Tool({ children: [this.lineWidthsTool.element] })
       toolsWrapper.appendChild(lineWidthsContainer.element)
 
       this.element.appendChild(toolsWrapper)
