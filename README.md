@@ -45,6 +45,7 @@ npm run coverage
 - [x] Styles (SASS, SUIT CSS)
 - [x] Variables in component styles (SASS)
 - [x] TDD ([Jest](https://jestjs.io/)) with mock canvas
+- [x] High coverage
 - [ ] TDD in deep with [node canvas](https://github.com/Automattic/node-canvas)
 - [ ] Eslint ([Airbnb](https://github.com/airbnb/javascript))
 
