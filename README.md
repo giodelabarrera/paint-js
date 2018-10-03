@@ -2,7 +2,7 @@
 
 Paint built in vanilla js with canvas
 
-[See it online ️↗️](http://giodelabarrera.paint-test.surge.sh/)
+[See it online](http://giodelabarrera.paint-test.surge.sh/)️ ↗️
 
 ## Screenshoot
 
