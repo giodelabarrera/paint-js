@@ -6,7 +6,8 @@
     "build": "webpack --env.mode production",
     "watch": "webpack-dev-server --env.mode development --hot --inline",
     "test": "jest",
-    "debug-test": "node --inspect-brk node_modules/.bin/jest --runInBand"
+    "debug-test": "node --inspect-brk node_modules/.bin/jest --runInBand",
+    "coverage": "jest --coverage"
   },
   "repository": {
     "type": "git",

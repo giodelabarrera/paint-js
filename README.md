@@ -1,8 +1,12 @@
-# Paint
+# 🎨 Paint
 
 Paint built in vanilla js with canvas
 
-Live demo [http://giodelabarrera.paint-test.surge.sh/](http://giodelabarrera.paint-test.surge.sh/)
+[See it online ️↗️](http://giodelabarrera.paint-test.surge.sh/)
+
+## Screenshoot
+
+![](./screenshot.png)
 
 ## Getting Started
 
@@ -26,6 +30,12 @@ Launches the test runner.
 
 ```sh
 npm test
+```
+
+Generate coverage
+
+```sh
+npm run coverage
 ```
 
 ## TODO
