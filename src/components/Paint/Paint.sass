@@ -1,7 +1,12 @@
+
+$Paint-gridTemplateColumns: 2fr 1fr
+$Paint-gridColumnGap: 2em
+$Paint-backgroundColor: #ffffff
+
 .Paint
   display: grid
-  grid-template-columns: 2fr 1fr
-  grid-column-gap: 2em
+  grid-template-columns: $Paint-gridTemplateColumns
+  grid-column-gap: $Paint-gridColumnGap
 
   &-canvasWrapper
-    background-color: #ffffff
+    background-color: $Paint-backgroundColor

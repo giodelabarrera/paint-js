@@ -20,14 +20,21 @@ npm run watch
 
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
+## Test
+
+Launches the test runner.
+
+```sh
+npm test
+```
+
 ## TODO
 
 - [x] Paint
 - [x] Components (ES6, Webpack, Babel)
 - [x] Styles (SASS, SUIT CSS)
-- [ ] Variables in component styles (SASS)
-- [ ] TDD ([Jest](https://jestjs.io/)) with mock canvas
-- [ ] Docs
+- [x] Variables in component styles (SASS)
+- [x] TDD ([Jest](https://jestjs.io/)) with mock canvas
 - [ ] TDD in deep with [node canvas](https://github.com/Automattic/node-canvas)
 - [ ] Eslint ([Airbnb](https://github.com/airbnb/javascript))
 

@@ -1,4 +1,8 @@
+
+$ColorsTool-gridTemplateColumns-repeatInteger: 5
+$ColorsTool-gridColumnGap: 0.4em
+
 .ColorsTool
   display: grid
-  grid-template-columns: repeat(5, 1fr)
-  grid-column-gap: 0.4em
+  grid-template-columns: repeat($ColorsTool-gridTemplateColumns-repeatInteger, 1fr)
+  grid-column-gap: $ColorsTool-gridColumnGap

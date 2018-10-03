@@ -1,4 +1,8 @@
+
+$LineWidthsTool-gridTemplateColumns-repeatInteger: 5
+$LineWidthsTool-gridColumnGap: 0.4em
+
 .LineWidthsTool
   display: grid
-  grid-template-columns: repeat(5, 1fr)
-  grid-column-gap: 0.4em
+  grid-template-columns: repeat($LineWidthsTool-gridTemplateColumns-repeatInteger, 1fr)
+  grid-column-gap: $LineWidthsTool-gridColumnGap
